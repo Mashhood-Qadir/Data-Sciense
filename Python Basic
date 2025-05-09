@@ -1,1 +1,29 @@
+balance = 2300  
+pin = int(input("Enter PIN code: "))
 
+if pin == 123:
+    option = input("Check balance\nWithdraw\nDeposit\nEnter option: ")
+
+    if option.lower() == 'check balance':
+        print(f"Available Balance: Rs{balance}/=")
+
+    elif option.lower() == 'withdraw':
+        amount = int(input("Enter amount: "))
+        if amount <= balance:
+            balance -= amount
+            print(f"Rs{amount} withdrawn successfully.")
+            print(f"Available Balance: Rs{balance}/=")
+        else:
+            print(f"You have only Rs{balance}/=")
+
+    elif option.lower() == 'deposit':
+        amount = int(input("Enter amount to deposit: "))
+        balance += amount
+        print(f"Rs{amount} deposited successfully.")
+        print(f"Available Balance: Rs{balance}/=")
+
+    else:
+        print("Invalid option selected.")
+
+else:
+    print("Incorrect PIN.")
